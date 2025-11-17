@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pure CSS Liquid Glass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="scene">
+      <header class="hero">
+        <p class="eyebrow">Experimental UI</p>
+        <h1>Liquid glass inspired by real-world optics.</h1>
+        <p>
+          The translucent slab reacts to your touch and the controls below so you can
+          explore how light refracts through layers of color.
+        </p>
+      </header>
+
+      <section class="glass-lab">
+        <div class="glass-card" aria-live="polite">
+          <div class="glass-card__inner">
+            <p>Move the sliders to sculpt tint, opacity, blur, and refraction.</p>
+            <div class="glass-card__stats">
+              <div>
+                <span>Refraction index</span>
+                <strong data-readout="refraction">1.48</strong>
+              </div>
+              <div>
+                <span>Blur radius</span>
+                <strong data-readout="blur">18px</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="controls" aria-label="Liquid glass controls">
+          <div class="control control--slider">
+            <div class="control__head">
+              <label for="tint">Glass tint</label>
+              <output for="tint" id="tint-output">200°</output>
+            </div>
+            <input
+              id="tint"
+              type="range"
+              min="120"
+              max="320"
+              value="200"
+              data-prop="--glass-hue"
+              data-format="degrees"
+            />
+          </div>
+
+          <div class="control control--slider">
+            <div class="control__head">
+              <label for="opacity">Opacity</label>
+              <output for="opacity" id="opacity-output">32%</output>
+            </div>
+            <input
+              id="opacity"
+              type="range"
+              min="0.18"
+              max="0.55"
+              step="0.01"
+              value="0.32"
+              data-prop="--glass-opacity"
+              data-format="percent"
+            />
+          </div>
+
+          <div class="control control--slider">
+            <div class="control__head">
+              <label for="blur">Blur</label>
+              <output for="blur" id="blur-output">18px</output>
+            </div>
+            <input
+              id="blur"
+              type="range"
+              min="10"
+              max="30"
+              step="1"
+              value="18"
+              data-prop="--glass-blur"
+              data-format="pixels"
+            />
+          </div>
+
+          <div class="control control--slider">
+            <div class="control__head">
+              <label for="refraction">Refraction</label>
+              <output for="refraction" id="refraction-output">1.48</output>
+            </div>
+            <input
+              id="refraction"
+              type="range"
+              min="0"
+              max="40"
+              step="1"
+              value="18"
+              data-prop="--glass-refraction"
+              data-format="refraction"
+            />
+          </div>
+
+          <label class="control control--toggle">
+            <input type="checkbox" id="sheen" checked data-prop="--glass-sheen" />
+            <span>Surface sheen</span>
+          </label>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
